@@ -16,6 +16,7 @@ import FacebookIcon from '@mui/icons-material/Facebook'
 import Image from 'mui-image'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
+import Link from '@mui/material/Link'
 
 function App() {
 
@@ -201,15 +202,20 @@ function App() {
           id='footer'
           sx={{
             padding: '10px',
-            mt: '10px'
+            mt: '10px',
+            backgroundColor: 'aliceblue'
           }}
         >
-          Tega Cay Animal Hospital
-          About Us
-          Contact Us
-          Sitemap
-          <FacebookIcon />
-          <p>© Willoughby Animal Hospitals, Inc</p>
+          <List>
+            <ListItem><Typography sx={{fontWeight: '700'}}>
+              Tega Cay Animal Hospital
+            </Typography></ListItem>
+            <ListItem><Link href='/about' sx={{color: 'black'}}>About Us</Link></ListItem>
+            <ListItem><Link href='/book' sx={{color: 'black'}}>Book an Appointment</Link></ListItem>
+            <ListItem><Link href='/sitemap' sx={{color: 'black'}}>Sitemap</Link></ListItem>
+            <ListItem><FacebookIcon /></ListItem>
+            </List>
+          <Typography align='center'>© Willoughby Animal Hospitals, Inc</Typography>
         </Container>
       </footer>
     </div>
