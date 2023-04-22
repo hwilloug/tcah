@@ -26,11 +26,11 @@ function NavBar() {
   const pages = [
     {
       name: 'About Us',
-      url: '/about'
+      url: 'about'
     },
     {
       name: 'Book an Appointment',
-      url: '/book'
+      url: 'book'
     }
   ]
 
@@ -86,7 +86,7 @@ function NavBar() {
                 }}
               >
                 {pages.map((page) => (
-                  <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                  <MenuItem key={page.name} onClick={handleCloseNavMenu} href={page.url}>
                     <Typography textAlign="center">{page.name}</Typography>
                   </MenuItem>
                 ))}
@@ -117,6 +117,7 @@ function NavBar() {
                   key={page.name}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
+                  href={page.url}
                 >
                   {page.name}
                 </Button>

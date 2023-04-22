@@ -56,6 +56,7 @@ function LandingPage() {
             <Button
               variant='contained'
               size='large'
+              href='book'
             >Book an Appointment</Button>
           </Box>
         </Container>
