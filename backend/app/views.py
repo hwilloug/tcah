@@ -6,4 +6,4 @@ from .models import Entry
 # Create your views here.
 class EntryView(viewsets.ModelViewSet):
   serializer_class = EntrySerializer
-  queryset = Entry.objects.all()
+  queryset = Entry.objects.all().order_by('-date')
