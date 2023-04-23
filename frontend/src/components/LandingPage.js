@@ -67,6 +67,7 @@ function LandingPage() {
                 mt: '20px'
               }}
             >
+              {entry.image_url && <Image src={entry.image_url} />}
               <h2>{entry.title}</h2>
               <p>{new Date(entry.date).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"})}</p>
               <p>{entry.content}</p>
