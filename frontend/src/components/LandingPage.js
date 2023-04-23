@@ -45,7 +45,10 @@ function LandingPage() {
           display: 'flex'
         }}
       >
-        <Container sx={{mt:'20px'}}>
+        <Container sx={{
+          mt:'20px',
+          flexShrink: 2
+        }}>
           <Box>
             <Typography variant='h6'>Hours:</Typography>
             <List>
@@ -60,17 +63,18 @@ function LandingPage() {
             >Book an Appointment</Button>
           </Box>
         </Container>
-        <Container>
+        <Container sx={{flexGrow: 2}}>
           { entries.map((entry) => (
             <Box
               sx={{
-                border: '1px solid blue',
+                border: '1px solid lightgrey',
+                borderRadius: '5px',
                 padding: '10px',
                 mt: '20px'
               }}
             >
               <h2>{entry.title}</h2>
-              <p>{entry.date}</p>
+              <p>{new Date(entry.date).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"})}</p>
               <p>{entry.content}</p>
             </Box>
           )) }
