@@ -7,6 +7,7 @@ import Button from '@mui/material/Button'
 import Paper from '@mui/material/Paper'
 import Image from 'mui-image'
 import Hours from './Hours'
+import WelcomeCarousel from './WelcomeCarousel'
 
 function LandingPage() {
 
@@ -23,23 +24,7 @@ function LandingPage() {
 
   return (
     <>
-      <Container disableGutters>
-        <Image 
-          src='dogs_running.jpg'
-        />
-        <Typography
-          variant='h4'
-          sx={{
-            fontWeight: 700,
-            color: 'white',
-            position: 'absolute',
-            top: '7rem',
-            left: '3rem',
-          }}
-        >
-          Compassionate Pet Care and Great Value since 1995!
-        </Typography>
-      </Container>
+      <WelcomeCarousel />
       <Container
         sx={{
           display: 'flex'
