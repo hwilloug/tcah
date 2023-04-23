@@ -1,0 +1,57 @@
+version: '3.4'
+
+services:
+  backend-development:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: development
+    image: backend-image-development
+    container_name: tcah-backend
+    restart: always
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./backend/:/app
+    links:
+      - local-db
+
+  local-db:
+    container_name: tcah-db
+    image: postgres:15.2
+    restart: always
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5450:5432"
+    volumes:
+      - postgres:/data/postgres
+      - ./init-db:/docker-entrypoint-initdb.d
+
+  frontend-development:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: development
+    image: frontend-image-development
+    command: npm start
+    ports:
+      - "3000:3000"
+    links:
+      - backend-development
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      BACKEND_URL: 'http://backend:8000'
+
+volumes:
+  postgres:
+    driver: local
+
+networks:
+  tcah:
+    driver: bridge
