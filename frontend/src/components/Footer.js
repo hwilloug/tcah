@@ -17,7 +17,7 @@ function Footer() {
     >
       <List>
         <ListItem><Typography sx={{fontWeight: '700'}}>
-          Tega Cay Animal Hospital
+          <Link href='/' underline='none' color='inherit'>Tega Cay Animal Hospital</Link>
         </Typography></ListItem>
         <ListItem><Link href='/about' sx={{color: 'black'}}>About Us</Link></ListItem>
         <ListItem><Link href='/book' sx={{color: 'black'}}>Book an Appointment</Link></ListItem>
