@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material";
 import Container from "@mui/material/Container";
 import { GoogleMap, Marker, LoadScript } from '@react-google-maps/api'
+import Hours from "./Hours";
 
 function ContactPage() {
 
@@ -13,6 +14,7 @@ function ContactPage() {
     <Container sx={{display: 'flex', padding: '10px'}}>
       <Container sx={{mt: '50px'}}>
         <Typography variant='h5'>Contact Us</Typography>
+        <Hours />
         <Typography fontWeight={700} sx={{mt: '30px'}}>We are located at:</Typography>
         <Typography>
           2152 Gold Hill Rd<br />

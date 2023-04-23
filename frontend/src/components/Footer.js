@@ -21,6 +21,7 @@ function Footer() {
         </Typography></ListItem>
         <ListItem><Link href='/about' sx={{color: 'black'}}>About Us</Link></ListItem>
         <ListItem><Link href='/book' sx={{color: 'black'}}>Book an Appointment</Link></ListItem>
+        <ListItem><Link href='/contact' sx={{color: 'black'}}>Contact Us</Link></ListItem>
         <ListItem><Link href='/sitemap' sx={{color: 'black'}}>Sitemap</Link></ListItem>
         <ListItem><FacebookIcon /></ListItem>
         </List>

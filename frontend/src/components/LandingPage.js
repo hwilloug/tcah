@@ -5,8 +5,7 @@ import Container from '@mui/material/Container'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Image from 'mui-image'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
+import Hours from './Hours'
 
 function LandingPage() {
 
@@ -50,12 +49,7 @@ function LandingPage() {
           flexShrink: 2
         }}>
           <Box>
-            <Typography variant='h6'>Hours:</Typography>
-            <List>
-              <ListItem>Monday-Thursday: 7 AM - 6 PM</ListItem>
-              <ListItem>Friday: 7 AM - 12 PM</ListItem>
-              <ListItem>Saturday-Sunday: closed</ListItem>
-            </List>
+            <Hours />
             <Button
               variant='contained'
               size='large'
