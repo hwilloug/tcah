@@ -10,6 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import IconButton from '@mui/material/IconButton'
 import AdbIcon from '@mui/icons-material/Adb'
 import Button from '@mui/material/Button'
+import Link from '@mui/material/Link'
 
 function NavBar() {
 
@@ -90,8 +91,12 @@ function NavBar() {
                 }}
               >
                 {pages.map((page) => (
-                  <MenuItem key={page.name} onClick={handleCloseNavMenu} href={page.url}>
-                    <Typography textAlign="center">{page.name}</Typography>
+                  <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">
+                      <Link href={page.url} underline='none' color='inherit'>
+                        {page.name}
+                      </Link>
+                    </Typography>
                   </MenuItem>
                 ))}
               </Menu>
@@ -101,7 +106,7 @@ function NavBar() {
               variant="h5"
               noWrap
               component="a"
-              href=""
+              href="/"
               sx={{
                 mr: 2,
                 display: { xs: 'flex', md: 'none' },

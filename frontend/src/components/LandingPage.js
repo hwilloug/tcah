@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
+import Paper from '@mui/material/Paper'
 import Image from 'mui-image'
 import Hours from './Hours'
 
@@ -59,10 +60,9 @@ function LandingPage() {
         </Container>
         <Container sx={{flexGrow: 2}}>
           { entries.map((entry) => (
-            <Box
+            <Paper
+              elevation={3}
               sx={{
-                border: '1px solid lightgrey',
-                borderRadius: '5px',
                 padding: '10px',
                 mt: '20px'
               }}
@@ -71,7 +71,7 @@ function LandingPage() {
               <h2>{entry.title}</h2>
               <p>{new Date(entry.date).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"})}</p>
               <p>{entry.content}</p>
-            </Box>
+            </Paper>
           )) }
         </Container>
       </Container>
