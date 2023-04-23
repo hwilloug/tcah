@@ -23,7 +23,7 @@ function ContactPage() {
         <Typography fontWeight={700} sx={{mt: '30px'}}>Call us at:</Typography>
         <Typography>+1 (803) 548-2590</Typography>
       </Container>
-      <Container>
+      <Container sx={{alignSelf: 'center'}}>
         <LoadScript
           googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
         >
