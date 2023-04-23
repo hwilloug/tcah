@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import LandingPage from './components/LandingPage';
 import AboutPage from './components/AboutPage';
 import BookPage from './components/BookPage';
+import ContactPage from './components/ContactPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route index element={<LandingPage />} />
             <Route path='about' element={<AboutPage />} />
+            <Route path='contact' element={<ContactPage />} />
             <Route path='book' element={<BookPage />} />
           </Routes>        
         </BrowserRouter>

@@ -31,6 +31,10 @@ function NavBar() {
     {
       name: 'Book an Appointment',
       url: 'book'
+    },
+    {
+      name: 'Contact Us',
+      url: 'contact'
     }
   ]
 
