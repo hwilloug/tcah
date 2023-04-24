@@ -23,5 +23,6 @@ router.register(r'entry', views.EntryView, 'entry')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path('health_check/', include('health_check.urls'))
 ]

@@ -9,6 +9,8 @@ services:
     image: backend-image-development
     container_name: tcah-backend
     restart: always
+    env_file:
+      - ./backend/.env
     ports:
       - '8000:8000'
     volumes:
@@ -29,7 +31,6 @@ services:
       - "5450:5432"
     volumes:
       - postgres:/data/postgres
-      - ./init-db:/docker-entrypoint-initdb.d
 
   frontend-development:
     build:
@@ -44,9 +45,9 @@ services:
       - backend-development
     volumes:
       - ./frontend:/app
-      - /app/node_modules
-    environment:
-      BACKEND_URL: 'http://backend:8000'
+      - ./frontend/node_modules:/app/node_modules
+    env_file:
+      - ./frontend/.env
 
 volumes:
   postgres:
