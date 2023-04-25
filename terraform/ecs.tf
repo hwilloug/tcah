@@ -25,7 +25,7 @@ resource "aws_ecs_task_definition" "app_task" {
     "environment": [
       {
         "name": "RDS_DB_NAME",
-        "value: "${var.rds_db_name}"
+        "value": "${var.rds_db_name}"
       },
       {
         "name": "RDS_USERNAME",

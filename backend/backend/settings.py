@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 if 'RDS_DB_NAME' in os.environ:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql_pyscopg2',
+            'ENGINE': 'django.db.backends.postgresql',
             'NAME': os.environ.get('RDS_DB_NAME'),
             'USER': os.environ.get('RDS_USERNAME'),
             'PASSWORD': os.environ.get('RDS_PASSWORD'),

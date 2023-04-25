@@ -9,6 +9,7 @@ djangorestframework = "*"
 django-cors-headers = "*"
 django-health-check = "*"
 pyscopg2 = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
