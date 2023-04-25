@@ -8,6 +8,7 @@ django = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
 django-health-check = "*"
+pyscopg2 = "*"
 
 [dev-packages]
 

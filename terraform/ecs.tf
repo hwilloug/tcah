@@ -4,6 +4,7 @@ resource "aws_ecs_cluster" "production" {
 
 resource "aws_ecs_task_definition" "app_task" {
   family                = "${var.ecs_cluster_name}-django-app"
+  depends_on            = [aws_db_instance.production]
   container_definitions = <<DEFINITION
 [
   {
@@ -21,7 +22,28 @@ resource "aws_ecs_task_definition" "app_task" {
       }
     ],
     "command": ["manage.py", "runserver", "0.0.0.0:8000"],
-    "environment": [],
+    "environment": [
+      {
+        "name": "RDS_DB_NAME",
+        "value: "${var.rds_db_name}"
+      },
+      {
+        "name": "RDS_USERNAME",
+        "value": "${var.rds_username}"
+      },
+      {
+        "name": "RDS_PASSWORD",
+        "value": "${var.rds_password}"
+      },
+      {
+        "name": "RDS_HOSTNAME",
+        "value": "${aws_db_instance.production.address}"
+      },
+      {
+        "name": "RDS_PORT",
+        "value": "5432"
+      }
+    ],
     "logConfiguration": {
       "logDriver": "awslogs",
       "options": {
