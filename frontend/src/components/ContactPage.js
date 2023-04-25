@@ -11,7 +11,7 @@ function ContactPage() {
   }
 
   return (
-    <Container sx={{display: 'flex', padding: '10px'}}>
+    <Container sx={{display: {md: 'flex'}, padding: '10px'}}>
       <Container sx={{mt: '50px'}}>
         <Typography variant='h5'>Contact Us</Typography>
         <Hours />

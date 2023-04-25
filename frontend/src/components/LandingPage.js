@@ -27,7 +27,7 @@ function LandingPage() {
       <WelcomeCarousel />
       <Container
         sx={{
-          display: 'flex'
+          display: {md: 'flex'}
         }}
       >
         <Container sx={{

@@ -31,13 +31,14 @@ function WelcomeCarousel() {
                         <Paper>
                             <Image src={item.image} />
                             <Typography
-                                variant='h4'
+                                variant='h5'
                                 sx={{
                                     fontWeight: 700,
                                     color: 'white',
                                     position: 'absolute',
-                                    top: '5rem',
-                                    left: '3rem',
+                                    top: '4rem',
+                                    left: '2rem',
+                                    padding: '20px'
                                 }}
                                 >
                                     {item.description}

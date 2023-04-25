@@ -104,7 +104,6 @@ function NavBar() {
             <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
             <Typography
               variant="h5"
-              noWrap
               component="a"
               href="/"
               sx={{
@@ -113,7 +112,7 @@ function NavBar() {
                 flexGrow: 1,
                 fontFamily: 'monospace',
                 fontWeight: 700,
-                letterSpacing: '.3rem',
+                letterSpacing: '.2rem',
                 color: 'inherit',
                 textDecoration: 'none',
               }}
@@ -125,7 +124,7 @@ function NavBar() {
                 <Button
                   key={page.name}
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, mx: 2, color: 'white', display: 'block' }}
+                  sx={{ my: 2, mx: 1, color: 'white', display: 'block' }}
                   href={page.url}
                 >
                   {page.name}

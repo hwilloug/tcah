@@ -27,7 +27,7 @@ function AboutPage() {
     <Container sx={{padding: '40px'}}>
       <Typography variant='h4'>About Us</Typography>
       { profiles.map((profile) => (
-        <Paper elevation={3} sx={{display: 'flex', padding: '20px', my:'20px'}}>
+        <Paper elevation={3} sx={{display: {md: 'flex'}, padding: '20px', my:'20px'}}>
           <Image src={profile.image} width='25%'/>
           <Container sx={{pl: '20px'}}>
             <Typography variant="h5">{profile.name}</Typography>
