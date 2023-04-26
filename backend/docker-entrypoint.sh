@@ -7,8 +7,8 @@ echo "INFO" "Creating superuser"
 cat << EOF | python3 manage.py shell > /dev/null
 from django.contrib.auth.models import User
 import os,sys
-username = "hwilloughby"
-email = "hannah@tcah.com"
+username = "admin"
+email = "doc@tcah.com"
 password = "password"
 if User.objects.filter(username=username).count() == 0:
   User.objects.create_superuser(username, email, password)
