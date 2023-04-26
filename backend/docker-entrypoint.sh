@@ -7,10 +7,10 @@ echo "INFO" "Creating superuser"
 cat << EOF | python3 manage.py shell > /dev/null
 from django.contrib.auth.models import User
 import os,sys
-username = "admin"
-email = "hannah@hannahwilloughby.dev"
+username = "hwilloughby"
+email = "hannah@tcah.com"
 password = "password"
-if User.objects.filter(username=username).count == 0:
+if User.objects.filter(username=username).count() == 0:
   User.objects.create_superuser(username, email, password)
   print('Created amin user', file=sys.stderr)
 else:
@@ -19,4 +19,4 @@ else:
 sys.stderr.flush()
 EOF
 
-python3 manage.py runserver
+exec "$@"
