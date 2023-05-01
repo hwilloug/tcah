@@ -1,5 +1,6 @@
 locals {
   s3_origin_id = "S3-origin-react-app"
+  alb_origin_id = "ALB-origin-django-app"
 }
 
 resource "aws_cloudfront_origin_access_identity" "oai" {
@@ -13,6 +14,18 @@ resource "aws_cloudfront_distribution" "cf_distribution" {
 
     s3_origin_config {
       origin_access_identity = aws_cloudfront_origin_access_identity.oai.cloudfront_access_identity_path
+    }
+  }
+
+  origin {
+    domain_name = aws_alb.application_load_balancer.dns_name
+    origin_id   = local.alb_origin_id
+
+    custom_origin_config {
+      http_port              = 80
+      https_port             = 443
+      origin_protocol_policy = "http-only"
+      origin_ssl_protocols   = ["TLSv1.2"]
     }
   }
 
@@ -60,6 +73,46 @@ resource "aws_cloudfront_distribution" "cf_distribution" {
     max_ttl                = 0
     compress               = true
     viewer_protocol_policy = "redirect-to-https"
+  }
+
+  ordered_cache_behavior {
+    path_pattern     = "/api/*"
+    allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+    cached_methods   = ["GET", "HEAD"]
+    target_origin_id = local.alb_origin_id
+
+    default_ttl = 0
+    min_ttl     = 0
+    max_ttl     = 0
+
+    forwarded_values {
+      query_string = true
+      cookies {
+        forward = "all"
+      }
+    }
+
+    viewer_protocol_policy = "allow-all"
+  }
+
+  ordered_cache_behavior {
+    path_pattern     = "/admin/*"
+    allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+    cached_methods   = ["GET", "HEAD"]
+    target_origin_id = local.alb_origin_id
+
+    default_ttl = 0
+    min_ttl     = 0
+    max_ttl     = 0
+
+    forwarded_values {
+      query_string = true
+      cookies {
+        forward = "all"
+      }
+    }
+
+    viewer_protocol_policy = "allow-all"
   }
 
   price_class = "PriceClass_100"

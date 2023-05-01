@@ -25,7 +25,7 @@ function Footer() {
         <ListItem><Link href='/sitemap' sx={{color: 'black'}}>Sitemap</Link></ListItem>
         <ListItem><FacebookIcon /></ListItem>
         </List>
-      <Typography align='center'>© Willoughby Animal Hospitals, Inc</Typography>
+      <Typography align='center'>© {new Date().getFullYear()} Willoughby Animal Hospitals, Inc</Typography>
     </Container>
   )
 }
